@@ -8,8 +8,13 @@
 
 <head>
 	<meta charset="EUC-KR">
-
+	<meta name = "vewport" content="width=device-width, initial-scale=1">
 	<title>Model2 MVC Shop</title>
+	<link rel ="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel ="stylesheet" href="/resources/demos/style.css">
+
+	<script src = "https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src = "https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 	<link href="/css/left.css" rel="stylesheet" type="text/css">
 
@@ -62,12 +67,20 @@
 				window.open("/history.jsp", "_blank");
 			});
 
+			$(function (){
+				$(document).tooltip();
+			})
 
 
 		});
 
 	</script>
-
+	<style>
+		lable {
+			display: inline-block;
+			width: 5em;
+		}
+	</style>
 </head>
 
 <body background="/images/left/imgLeftBg.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"  >
@@ -85,7 +98,7 @@
 						<!-- ////////////////// jQuery Event 처리로 변경됨 /////////////////////////
 							<a href="/user/getUser?userId=${user.userId}" target="rightFrame">개인정보조회</a>
 							////////////////////////////////////////////////////////////////////////////////////////////////// -->
-						개인정보조회
+						<span title = "개인정보 조회">개인정보조회</span>
 					</td>
 				</tr>
 				</c:if>
@@ -96,7 +109,7 @@
 							<!-- ////////////////// jQuery Event 처리로 변경됨 /////////////////////////
 							<a href="/user/listUser" target="rightFrame">회원정보조회</a>
 							////////////////////////////////////////////////////////////////////////////////////////////////// -->
-							회원정보조회
+							<span title = "회원정보조회">회원정보조회</span>
 						</td>
 					</tr>
 				</c:if>
@@ -116,13 +129,13 @@
 					<tr>
 						<td class="Depth03">
 							<!--	<a href="../product/addProductView.jsp;" target="rightFrame">판매상품등록</a>-->
-							판매상품등록
+							<span title = "판매상품등록">판매상품등록</span>
 						</td>
 					</tr>
 					<tr>
 						<td class="Depth03">
 							<!--<a href="/listProduct.do?menu=manage"  target="rightFrame">판매상품관리</a>-->
-							판매상품관리
+							<span title = "판매상품관리">판매상품관리</span>
 						</td>
 					</tr>
 					<tr>
@@ -140,7 +153,7 @@
 				<tr>
 					<td class="Depth03">
 						<!--<a href="/listProduct.do?menu=search" target="rightFrame">상 품 검 색</a>-->
-						상 품 검 색
+						<span title = "상품검색">상 품 검 색</span>
 					</td>
 				</tr>
 
@@ -148,7 +161,7 @@
 					<tr>
 						<td class="Depth03">
 							<!--<a href="/listPurchase.do"  target="rightFrame">구매이력조회</a>-->
-							구매이력조회
+							<span title = "구매이력조회">구매이력조회</span>
 						</td>
 					</tr>
 				</c:if>
@@ -158,7 +171,7 @@
 				</tr>
 				<tr>
 					<td class="Depth03"><!--<a href="javascript:history()">최근 본 상품</a>-->
-						최근 본 상품
+						<span title = "최근 본 상품">최근 본 상품</span>
 					</td>
 				</tr>
 			</table>
