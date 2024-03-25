@@ -69,7 +69,8 @@ public class UserRestController {
 	}
 	//=======================================================================================================
 	@RequestMapping( value="json/listUser" )
-	public Map<String, Object> listUser(@ModelAttribute("search") Search search) throws Exception{
+	public Map<String, Object> listUser(@ModelAttribute("search") Search search,
+										@RequestParam("currentPage")int currentPage) throws Exception{
 
 		System.out.println("/user/listUser : GET / POST");
 
@@ -77,6 +78,7 @@ public class UserRestController {
 			search.setCurrentPage(1);
 		}
 		search.setPageSize(pageSize);
+		search.setCurrentPage(currentPage);
 
 		// Business logic ผ๖วเ
 		Map<String , Object> map = userService.getUserList(search);
@@ -92,6 +94,7 @@ public class UserRestController {
 
 		return map;
 	}
+
 	//=======================================================================================================
 	@RequestMapping( value="json/addUser", method=RequestMethod.POST )
 	public User addUser( @RequestBody User user ) throws Exception {
